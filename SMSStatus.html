@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Mahesh Gym Fitness</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Baggage Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+       <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+  
+    <link rel="stylesheet" href="css/New_style.css" type="text/css" media="all" />
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+ <div class="header">
+  <a href="Welcome.html" class="logo">Mahesh Gym</a>
+   <div class="header-right">
+    <a href="CustRegistration.html">Registration</a>
+    <a href="CustSendNotification.html">Send Notification</a>
+    <a href="CustPay.html">Pay Money</a>
+	<a href="CustPaymentHistory.html">Payment History</a>
+	<a href="CustPaymentMonthlyHistory.html">Payment Monthly History</a>
+	<a href="CustUpCommingNotification.html">Today Notification</a>
+	<a class="active" href="SMSStatus.html">SMS Status</a>
+	<a href="Settings.html">Settings</a>
+  </div>
+</div>
+	
+	<div class="container py-md-5">
+		<h3 class="title-wthree mb-lg-5 mb-4 text-center">SMS Status. Total SMS available are : <span id="smsCount"></span></h3>
+	</div>
+    <!--/login -->
+   
+	 <div class="container">
+     <div class="row">
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered table-hover" id="smsEmailTable">
+						  <thead> 
+							<th>Sr No.</th>
+							<th>Mobile No</th>
+							<th>Status</th>
+							<th>Date Time</th>
+							<th>Content</th>							
+							</thead> 
+							<tbody>	
+							</tbody>		
+				</table>
+			</div>	
+	</div>
+	</div>
+	
+	 <!-- jQuery -->
+  <script src="vendor/jquery/jquery.js"></script>  
+    <script>
+    $(document).ready(function() {
+	var json = JSON.parse(localStorage.getItem("custDetails"));
+        $.ajax({
+		  type: 'GET',
+		  url: "https://api.textlocal.in/get_history_api/?apikey=mdJ9fkUO8B4-pOqBqyjOLGAjyOaAYtfeCs7tbqGXrQ&limit=500",
+		  success: function (response1) { 				
+				$.each(response1.messages, function(key,response) {	
+						var status = "";
+						var responseStatus = $(response).attr("status");
+						if(responseStatus == "D"){
+								status = "Delivered";
+						}else if(responseStatus == "E"){
+								status = "Message Expired";
+						}else if(responseStatus == "U"){
+								status = "Un-Delivered";
+						}else if(responseStatus == "?"){
+								status = "In Pending";
+						}else{
+								status = responseStatus;
+						}
+						var newRow = "<tr><td>"+ ++key +"</td><td>"+$(response).attr("number")+"<br>"+json[$(response).attr("number")]+"</td><td>"+status+"</td><td>"+$(response).attr("datetime")+"</td><td>"+$(response).attr("content")+"</td></tr>";
+						$("#smsEmailTable tbody").append(newRow);
+						 
+				});
+				
+			   },
+		  error : function (response) { 
+				alert("Error "+response);
+        }
+
+		});
+		
+		 $.ajax({
+		  type: 'GET',
+		  url: "https://api.textlocal.in/balance/?apikey=mdJ9fkUO8B4-pOqBqyjOLGAjyOaAYtfeCs7tbqGXrQ",
+		  success: function (response1) { 				
+				$("#smsCount").html(response1.balance.sms);
+			   },
+		  error : function (response) { 
+				alert("Error "+response);
+        }
+
+		});
+	   
+    });
+    </script>
+
+</body>
+
+</html>

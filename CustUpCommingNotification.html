@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Mahesh Gym Fitness</title>
+	  <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Baggage Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/New_style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+    <!-- DataTables CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+ <div class="header">
+  <a href="Welcome.html" class="logo">Mahesh Gym</a>
+<div class="header-right">
+    <a href="CustRegistration.html">Registration</a>
+    <a href="CustSendNotification.html">Send Notification</a>
+    <a href="CustPay.html">Pay Money</a>
+	<a href="CustPaymentHistory.html">Payment History</a>
+	<a href="CustPaymentMonthlyHistory.html">Payment Monthly History</a>
+	<a class="active" href="CustUpCommingNotification.html">Today Notification</a>
+	<a href="SMSStatus.html">SMS Status</a>
+	<a href="Settings.html">Settings</a>
+  </div>
+</div>
+	
+	<div class="container py-md-5">
+		<h3 class="title-wthree mb-lg-5 mb-4 text-center">Customer Notification </h3>
+	</div>
+ <br>
+	 <div class="container">
+
+     <div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+					<div class="panel-heading">
+						Customer due date expire
+					</div>
+					<!-- /.panel-heading -->
+					<div class="table-responsive"> 
+						  
+						  <table class="table table-striped table-bordered table-hover" id="custDetailsPreTable">
+						  <thead> 
+							<th>Sr No.</th>
+							<th>Customer Name</th>
+							<th>Amount</th>	
+							<th>Billing Day</th>								
+							</thead> 
+							<tbody>	
+							</tbody>		
+						</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	     <div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+					<div class="panel-heading">
+						Upcomming Payment Customer
+					</div>
+					<!-- /.panel-heading -->
+					<div class="table-responsive"> 
+						  
+						  <table class="table table-striped table-bordered table-hover" id="custDetailsPostTable">
+						  <thead> 
+							<th>Sr No.</th>
+							<th>Customer Name</th>
+							<th>Amount</th>	
+							<th>Billing Day</th>						
+							</thead> 
+							<tbody>	
+							</tbody>		
+						</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	
+	 <!-- jQuery -->
+  <script src="vendor/jquery/jquery.js"></script>  
+
+	 <script src="js/script_lib.js"></script>
+   
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+       getNotificationDetails();
+	  
+    });
+    </script>
+
+</body>
+
+</html>

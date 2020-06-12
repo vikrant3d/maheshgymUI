@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Mahesh Gym Fitness</title>
+	  <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Baggage Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <!-- Bootstrap-Core-CSS -->
+   <link rel="stylesheet" href="css/New_style.css" type="text/css" media="all" />
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- //font-awesome-icons -->
+  
+</head>
+<body>
+ <div class="header">
+  <a href="Welcome.html" class="logo">Mahesh Gym</a>
+ <div class="header-right">
+    <a href="CustRegistration.html">Registration</a>
+    <a href="CustSendNotification.html">Send Notification</a>
+    <a href="CustPay.html">Pay Money</a>
+	<a href="CustPaymentHistory.html">Payment History</a>
+	<a href="CustPaymentMonthlyHistory.html">Payment Monthly History</a>
+	<a href="CustUpCommingNotification.html">Today Notification</a>
+	<a href="SMSStatus.html">SMS Status</a>
+	<a class="active"href="Settings.html">Settings</a>
+  </div>
+</div>
+	
+	<div class="container py-md-5">
+		<h3 class="title-wthree mb-lg-5 mb-4 text-center">Settings </h3>
+	</div>
+		</br></br>
+    <!--/login -->
+    <section class="banner-bottom py-5">
+	
+        <div class="container">
+			<div class="row">
+				<div class="form-group name1 col-md-4">
+					<label for="exampleInputEmail1" class="formText">Enable Notification:</label>
+				</div>
+				<div class="form-group name2 col-md-6" id="details">					
+					<select name="details" id="details" class="form-control notificationstatus" >
+						<option value="A">Active</option>
+						<option value="I">In-Active</option>
+					</select>
+				</div>
+				<div class="form-group name1 col-md-2">
+					<input type="button" onClick="return updateDetailsNotification(this,'notificationstatus')" class="btn btn-primary" value="Update Details" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group name1 col-md-4">
+					<label for="exampleInputEmail1" class="formText">Welcome Notification:</label>
+				</div>
+				<div class="form-group name2 col-md-6" id="details">					
+					<input type="text" class="form-control welcomenotification" id="details" name="details" code="" maxlength="159">
+				</div>
+				<div class="form-group name1 col-md-2">
+					<input type="button" onClick="return updateDetailsNotification(this,'welcomenotification')" class="btn btn-primary" value="Update Details" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group name1 col-md-4">
+					<label for="exampleInputEmail1" class="formText">Pre Notification Days:</label>
+				</div>
+				<div class="form-group name2 col-md-6" id="details">					
+					<input type="text" class="form-control prenotificationdays" id="details" name="details" code="" maxlength="1">
+				</div>
+				<div class="form-group name1 col-md-2">
+					<input type="button" onClick="return updateDetailsNotification(this,'prenotificationdays')" class="btn btn-primary" value="Update Details" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group name1 col-md-4">
+					<label for="exampleInputEmail1" class="formText">Pre Notification Message:</label>
+				</div>
+				<div class="form-group name2 col-md-6" id="details">					
+					<input type="text" class="form-control prenotificationmsg" id="details" name="details" code="" maxlength="159">
+				</div>
+				<div class="form-group name1 col-md-2">
+					<input type="button" onClick="return updateDetailsNotification(this,'prenotificationmsg')" class="btn btn-primary" value="Update Details" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group name1 col-md-4">
+					<label for="exampleInputEmail1" class="formText">Post Notification Days:</label>
+				</div>
+				<div class="form-group name2 col-md-6" id="details">					
+					<input type="text" class="form-control postnotificationdays" id="details" name="details" code="" maxlength="1">
+				</div>
+				<div class="form-group name1 col-md-2">
+					<input type="button" onClick="return updateDetailsNotification(this,'postnotificationdays')" class="btn btn-primary" value="Update Details" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group name1 col-md-4">
+					<label for="exampleInputEmail1" class="formText">Post Notification Message:</label>
+				</div>
+				<div class="form-group name2 col-md-6" id="details">					
+					<input type="text" class="form-control postnotificationmsg" id="details" name="details" code="" maxlength="159">
+				</div>
+				<div class="form-group name1 col-md-2">
+					<input type="button" onClick="return updateDetailsNotification(this,'postnotificationmsg')" class="btn btn-primary" value="Update Details" />
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group name1 col-md-4">
+					<label for="exampleInputEmail1" class="formText">Payment Notification:</label>
+				</div>
+				<div class="form-group name2 col-md-6" id="details">					
+					<input type="text" class="form-control paymentnotificationmsg" id="details" name="details" code="" maxlength="159">
+				</div>
+				<div class="form-group name1 col-md-2">
+					<input type="button" onClick="return updateDetailsNotification(this,'paymentnotificationmsg')" class="btn btn-primary" value="Update Details" />
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="form-group name1 col-md-4">
+					<label for="exampleInputEmail1" class="formText">Change Password:</label>
+				</div>
+				<div class="form-group name2 col-md-6" id="details">					
+					<input type="text" id="newpassword" class="form-control input_pass" value="" placeholder="Enter New Password">
+					<input type="password" id="confirmpassword"  class="form-control input_pass" value="" placeholder="Enter Confirm Password">
+						
+				</div>
+				<div class="form-group name1 col-md-2">
+					<input type="button" onClick="return changePassword()" class="btn btn-primary" value="Update Password" />
+				</div>
+			</div>
+			
+			
+        </div>
+	
+    </section>
+	</br></br>
+	 
+	
+
+	
+	 <!-- jQuery -->
+  <script src="vendor/jquery/jquery.js"></script>  
+   <script src="js/script_lib.js"></script>
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+getDetailsNotification();
+	
+    </script>
+
+</body>
+
+</html>

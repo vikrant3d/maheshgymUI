@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Mahesh Gym Fitness</title>
+	  <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+	   <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <meta name="keywords" content="Baggage Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <link href="vendor/datePicker/bootstrap-datepicker.css" rel="stylesheet">  
+	 <!-- Custom-Files -->
+  
+    <!-- Bootstrap-Core-CSS -->
+   <link rel="stylesheet" href="css/New_style.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+    <!-- DataTables CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- DataTables CSS -->
+    <link href="vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+ <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- //font-awesome-icons -->
+	<style>
+	.btn{
+		font-size: 12px !important;
+	}
+	</style>
+  
+</head>
+<body>
+ <div class="header">
+  <a href="Welcome.html" code="getAllAuditDetails triggerScheduler" class="logo">Mahesh Gym</a>
+ <div class="header-right">
+    <a class="active" href="CustRegistration.html">Registration</a>
+    <a href="CustSendNotification.html">Send Notification</a>
+    <a href="CustPay.html">Pay Money</a>
+	<a href="CustPaymentHistory.html">Payment History</a>
+	<a href="CustPaymentMonthlyHistory.html">Payment Monthly History</a>
+	<a href="CustUpCommingNotification.html">Today Notification</a>
+	<a href="SMSStatus.html">SMS Status</a>
+	<a href="Settings.html">Settings</a>
+  </div>
+</div>
+	
+	<div class="container py-md-5">
+		<h3 class="title-wthree mb-lg-5 mb-4 text-center">Customer Registration Form </h3>
+	</div>
+    <!--/login -->
+    <section class="banner-bottom py-5">
+	 <form role="form" id="customerDetails">
+        <div class="container">
+			   <div class="row">
+				<div class="form-group name1 col-md-6">
+					<label for="exampleInputEmail1" class="formText">Customer Full Name:</label>
+					<input type="text" class="form-control" id="custFullName" name="custFullName" maxlength="20" >
+					<input type="hidden" class="form-control" id="id" name="id">
+				</div>
+
+				<div class="form-group name2 col-md-6">
+					<label for="exampleInputEmail1## Heading ##" class="formText">Address:</label>
+					<input type="text" class="form-control" id="custAddress" name="custAddress"  maxlength="50">
+				</div>
+			</div>
+			 <div class="row">
+				<div class="form-group name1 col-md-6">
+					<label for="exampleInputEmail1" class="formText">MobileNo:</label>
+					<input type="text" class="form-control" id="custMobileNo" name="custMobileNo"  maxlength="10">
+				</div>
+
+				<div class="form-group name2 col-md-6">
+					<label for="exampleInputEmail1## Heading ##" class="formText">Email ID:</label>
+					<input type="text" class="form-control" id="custMobileNo" name="custEmailId"  maxlength="50">
+				</div>
+			</div>
+			 <div class="row">
+				<div class="form-group name1 col-md-6">
+					<label for="exampleInputEmail1" class="formText">Date of Join Gym:</label>
+					<input type="text" class="form-control" id="custDOJ" name="custDOJ"  maxlength="10">
+				</div>
+
+				<div class="form-group name2 col-md-6">
+					<label for="exampleInputEmail1## Heading ##" class="formText">Billing Day:</label>
+					<select name="custBillingDay" id="custBillingDay" class="form-control" >
+						
+					</select>
+				</div>
+			</div>
+			 <div class="row">
+				<div class="form-group name1 col-md-6">
+					<label for="exampleInputEmail1" class="formText">Amount Pay Joining:</label>
+					<input type="text" class="form-control" id="custAmountPayDOJ" name="custAmountPayDOJ"  maxlength="4">
+				</div>
+
+				<div class="form-group name2 col-md-6">
+					<label for="exampleInputEmail1## Heading ##" class="formText">Monthly Amount to Pay:</label>
+					<input type="text" class="form-control" id="custAmountToPay" name="custAmountToPay" maxlength="4">
+				</div>
+			</div>
+			 <div class="row">
+				
+				<div class="form-group name1 col-md-6">
+					<label for="exampleInputEmail1" class="formText">SMS/Email Status:</label>
+					<select name="smsEmailStatus" id="smsEmailStatus" class="form-control" >
+						<option value="A">Active</option>
+						<option value="I">In-Active</option>
+					</select>
+				</div>
+				<div class="form-group name2 col-md-6">
+					<label for="exampleInputEmail1## Heading ##" class="formText">Additional Note:</label>
+					<input type="text" class="form-control" id="additionalNote" name="additionalNote">
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group name1 col-md-6">
+					<label for="exampleInputEmail1" class="formText">Upload Customer Photo:</label>
+					<input type="file" name="custPic1" id="custPic1" />
+					<input type="hidden" class="form-control" id="custPic" name="custPic" >
+				</div>
+
+				<div class="form-group name2 col-md-6">
+					<img id="custPic-orignal" width="500px" style="display:none">
+					<div class="image-sec-cust">
+						<img id="custPic-image" style="">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group name1 col-md-6">
+					<label for="exampleInputEmail1" class="formText">Upload Document:</label>
+					<input type="file" id="custDoc1" name="custDoc1" />
+					<input type="hidden" class="form-control" id="custDoc" name="custDoc" >
+				</div>
+
+				<div class="form-group name2 col-md-6">
+					<img id="custDoc-orignal" width="500px" style="display:none">
+					<div class="image-sec-doc">
+						<img id="custDoc-image" style="">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-6" style="text-align:right">
+					<input type="button" value="Submit customer Details" class="btn btn-primary" onclick="return submitCustDetails(this)">
+					<input type="button" value="Add New customer Details" class="btn btn-primary" onclick="newCustDetails()">
+				</div>
+			</div>  
+        </div>
+		</form>
+    </section>
+	</br></br>
+	 <div class="container">
+     <div class="row">
+		<div class="col-lg-12 table-responsive">
+			<div class="panel panel-default">
+					<div class="panel-heading">
+						All Customer Details
+					</div>
+					<!-- /.panel-heading -->
+					<div class="panel-body"> 
+						<div id="searchBoxPosition" style="float:right"></div>	  
+						  <table class="table table-striped table-bordered table-hover" id="custDetailsTable">
+						  <thead> 
+							<th>Sr No.</th>
+							<th>Customer Name</th>
+							<th>Mobile No</th>
+							<th>Email Id</th>
+							<th>BillingDay</th>
+							<th>Monthly Amount</th>
+							<th>SMS/EMAIL Status</th>
+							<th>Update/Delete</th>
+							</thead> 
+							<tbody>	
+							</tbody>		
+						</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	
+	
+	<div class="modal fade" id="lodaingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Loading Please Wait</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>Please wait you data is been progress </h6>
+      </div>
+    </div>
+  </div>
+  </div>
+	
+	 <!-- jQuery -->
+  <script src="vendor/jquery/jquery.js"></script>  
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	 <script src="js/script_lib.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
+	
+     <script src="vendor/datePicker/bootstrap-datepicker.js"></script> 
+	 
+   
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+	var input2 = document.getElementById("custPic1");
+    input2.onchange = function() {
+		document.getElementById('custPic-image').src = '';
+		$(".image-sec-cust").append('<i class="fa fa-refresh fa-spin" style="font-size: 81px;color: #2e6da4;"></i>')
+		setTimeout(resizeCustPic,200);
+    };
+	
+	var input3 = document.getElementById("custDoc1");
+    input3.onchange = function() {
+		document.getElementById('custDoc-image').src = '';
+		$(".image-sec-doc").append('<i class="fa fa-refresh fa-spin" style="font-size: 81px;color: #2e6da4;"></i>')
+		setTimeout(resizeDocPic,200);
+    };
+
+    $(document).ready(function() {
+       getAllCustDetails();
+	   $('#custDOJ').datepicker({
+                    format: "dd/mm/yyyy",
+					autoclose: true,
+                });
+	   
+	   for(i=1;i<=28;i++){
+			$('#custBillingDay').append('<option value="'+i+'">'+i+'</option>');
+	   }
+    });
+    </script>
+
+</body>
+
+</html>

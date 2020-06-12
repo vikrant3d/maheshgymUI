@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Mahesh Gym Fitness</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Baggage Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="css/New_style.css" type="text/css" media="all" />
+  <!-- DataTables CSS -->
+    <link href="vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- DataTables Responsive CSS -->
+    <link href="vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+ <div class="header">
+  <a href="Welcome.html" class="logo">Mahesh Gym</a>
+  <div class="header-right">
+    <a href="CustRegistration.html">Registration</a>
+    <a href="CustSendNotification.html">Send Notification</a>
+    <a href="CustPay.html">Pay Money</a>
+	<a class="active" href="CustPaymentHistory.html">Payment History</a>
+	<a href="CustPaymentMonthlyHistory.html">Payment Monthly History</a>
+	<a href="CustUpCommingNotification.html">Today Notification</a>
+	<a href="SMSStatus.html">SMS Status</a>
+	<a href="Settings.html">Settings</a>
+  </div>
+</div>
+	
+	<div class="container py-md-5">
+		<h3 class="title-wthree mb-lg-5 mb-4 text-center">Customer Payment History </h3>
+	</div>
+    <!--/login -->
+	 <div class="container">
+			   <div class="row">
+				<div class="form-group name1 col-md-6">
+					<label for="exampleInputEmail1" class="formText">Total Number of customer: <span id="custCount"></span>.</label>
+					
+				</div>
+
+				<div class="form-group name2 col-md-6">
+					<label for="exampleInputEmail1## Heading ##" class="formText">Total Amount collection: <span id="custCountAmt"></span> rupees.</label>
+					
+				</div>
+			</div>
+		</div>
+	 <div class="container">
+     <div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+					<div class="panel-heading">
+						Previous Payment History
+					</div>
+					<!-- /.panel-heading -->
+					<div class="panel-body"> 
+						<div id="searchBoxPosition" style="float:right"></div>	  
+						  <table class="table table-striped table-bordered table-hover" id="custDetailsTable">
+						  <thead> 
+							<th>Sr No.</th>
+							<th>Customer Name</th>
+							<th>Amount Payed Till Now</th>							
+							</thead> 
+							<tbody>	
+							</tbody>		
+						</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<br><br>
+		
+	<div class="modal fade" id="lodaingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Loading Please Wait</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>Please wait you data is been progress </h6>
+      </div>
+    </div>
+  </div>
+  </div>
+	 <!-- jQuery -->
+  <script src="vendor/jquery/jquery.js"></script>  
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/script_lib.js"></script>
+
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	  <!-- DataTables JavaScript -->
+    <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
+	
+	<link href="vendor/datePicker/bootstrap-datepicker.css" rel="stylesheet">  
+     <script src="vendor/datePicker/bootstrap-datepicker.js"></script> 
+   	 
+   
+    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    <script>
+    $(document).ready(function() {
+       getAllCustPaymentInfo();
+    });
+    </script>
+
+</body>
+
+</html>
