@@ -26,7 +26,9 @@ function submitCustDetails(obj){
 	if($("#custAmountPayDOJ").val() == ""){
 		$("#custAmountPayDOJ").val('0');
 	}
-	$('#lodaingModal').modal('show');
+	$("#footerSection").hide();
+	$("#confirmBody").html("Please wait you data is been progress");
+	$('#confirmModal').modal('show');
 	var custPic="";
 	var custDoc="";
 	
@@ -43,79 +45,97 @@ function submitCustDetails(obj){
 	 $.ajax({
 	  type: 'POST',
 	  url: contextPath +"updateCustData",
-	 data: JSON.stringify(map),
-	 
+	 data: JSON.stringify(map),	 
 	  success: function (response) { 
-			$('#lodaingModal').modal('hide');
-			alert(response);
-			location.reload();
+			$("#footerSection").show();
+			$("#confirmBody").html(response);
 			},
 	  error : function (response) { 		
-			$('#lodaingModal').modal('hide');
+			
 			alert(response);
 			location.href="login.html"	
 			}
 	});
+	return false;
+}
+
+function closePopUp(){
+	$('#confirmModal').modal('hide');
+	location.reload();
+	return false;
 }
 
 function checkValidation(){
 	if($("#custFullName").val() == "" ){
-		alert('Please Enter Customer Name');
+		$("#footerSection").show();
+		$("#confirmBody").html("Please Enter Customer Name");
+		$('#confirmModal').modal('show');
 		return false;
 	}else if($("#custMobileNo").val() == "" || $("#custMobileNo").val().length != 10 || ! NumberRegex.test($("#custMobileNo").val())){
-		alert('Please Enter valid Customer mobile number');
+		$("#footerSection").show();
+		$("#confirmBody").html("Please Enter valid Customer mobile number");
+		$('#confirmModal').modal('show');
 		return false;
 	}else if($("#custAmountToPay").val() == "" || isNaN($("#custAmountToPay").val())){
-		alert('Please Enter valid Monthly Amount to Pay');
+		$("#footerSection").show();
+		$("#confirmBody").html("Please Enter valid Monthly Amount to Pay");
+		$('#confirmModal').modal('show');
 		return false;
 	}
-	
 	return true;
 	
 }
-
+var todate;
 function submitCustAmount(obj){
 	
 	if($("#dateOfPayment").val() =="" || $("#myInput").val() == ""){
-			alert("Please enter required details");
+			$("#confirmBody").html("Please enter required details");
+			$("#confirmbtn").hide();
+			$("#confirmModal").modal('show');
+			return false;
 	}else{
 		var msg = "Are you sure you want to make payment ";
-		var todate = $("#dateOfPaymentToMonth").val();
+		todate = $("#dateOfPaymentToMonth").val();
 		if(todate == ""){
 			todate = $("#dateOfPayment").val();
 			msg = msg + "for "+$("#dateOfPayment").val().substr(3)+" month?"
 		}else{
 			msg = msg + "from "+$("#dateOfPayment").val().substr(3)+" month to "+$("#dateOfPaymentToMonth").val().substr(3)+" month?"
 		}
-		
-		var r = confirm(msg);
-		if (r == true) {
-			$('#lodaingModal').modal('show');
-			var index = $("#myInput").val().lastIndexOf("#")+1;
-			var myid = $("#myInput").val().substring(index+1);
-			var map = getFormData("#customerDetails");
-			map["id"]=myid;
-			map["amountPaidDate"]=$("#dateOfPayment").val();
-			map["dateOfPaymentToMonth"]=todate;
-			map["token"]=sessionStorage.getItem(code + "_token");
-			  $.ajax({
-			  type: 'POST',
-			  url: contextPath +"submitCustAmount",
-			 data: JSON.stringify(map),		 
-			  success: function (response) { 
-					$('#lodaingModal').modal('hide');
-					alert(response);
-					location.reload();
-					},
-			  error : function (response) { 						
-					$('#lodaingModal').modal('hide');
-					alert(response);
-					location.href="login.html"	
-					}
-
-			});
-		}
+		$("#footerSection").show();
+		$("#confirmbtn").show();
+		$("#confirmBody").html(msg);
+		$("#confirmModal").modal('show');
 	}
+}
+
+function confirmPayment(){
+	$("#confirmModal").modal('show');
+	$("#confirmBody").html("Please wait...");
+	var index = $("#myInput").val().lastIndexOf("#")+1;
+	var myid = $("#myInput").val().substring(index+1);
+	var map = getFormData("#customerDetails");
+	map["id"]=myid;
+	map["amountPaidDate"]=$("#dateOfPayment").val();
+	map["dateOfPaymentToMonth"]=todate;
+	map["token"]=sessionStorage.getItem(code + "_token");
+	  $.ajax({
+	  type: 'POST',
+	  url: contextPath +"submitCustAmount",
+	  data: JSON.stringify(map),		 
+	  success: function (response) { 
+			$("#confirmBody").html(response);
+			$("#confirmbtn").hide();
+			},
+	  error : function (response) { 						
+			$("#confirmBody").html(response);
+			$("#confirmbtn").hide();
+			$("#confirmModal").modal('show');
+			location.href="login.html"	
+			}
+
+	});
+	return false;
 }
 
 function generateCustRow(response1){
@@ -269,22 +289,6 @@ function getAllCustPaymentInfo(){
 			});
 }
 
-
-function sendNotificationToAllCust(){	
-
-var r = confirm("Are you sure you want to send this message to all customer?");
-	if (r == true) {	
-		$.ajax({
-		  type: 'POST',
-		   data: 'message='+$("textarea[name='message']").val(),
-		  url: contextPath +"sendNotifnToAllCust",
-		  success: function (response1) { 	
-					alert(response1)
-				}
-			});
-			
-	}
-}
 
 function getNotificationDetails(){		
 		$.ajax({
@@ -516,6 +520,14 @@ function doLogin(obj){
 	}	
 	
 	function sendNotificationToAllCust(){
+		
+		$("#confirmModal").modal('show');
+		
+	}	
+	
+	function yesSendNotificationtoAll(){
+		$("#footerSection").hide();
+		$("#confirmBody").html('Please wait...');
 		var map= {};
 			map["token"]=sessionStorage.getItem(code + "_token");
 			map["message"]=$("#message").val();
@@ -524,14 +536,17 @@ function doLogin(obj){
 			   data: JSON.stringify(map),
 			  url: contextPath +"sendNotificationToAllCust",
 			  success: function (response1) { 					
-						alert(response1)
-						location.reload();
+						$("#footerSection2").show();
+						$("#confirmBody").html(response1);
+						
 					},
-			  error : function (response) {
-						alert("Error "+response);	
+			  error : function (response1) {
+						$("#footerSection2").show();
+						$("#confirmBody").html(response1);
 					}
 			});
-	}	
+			return false;
+	}
 	
 	function changePassword(){
 	if($("#newpassword").val() == ""){
