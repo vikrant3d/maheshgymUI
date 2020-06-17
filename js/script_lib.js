@@ -1,5 +1,5 @@
 var code = "MG/";
-var contextPath = "https://miiulj7htf.execute-api.ap-southeast-1.amazonaws.com/dev/"+code;
+var contextPath = "https://wjyr4uj3w2.execute-api.ap-south-1.amazonaws.com/dev/"+code;
 
 var NumberRegex = /^[0-9]*$/;
 function getFormData(form){
