@@ -481,9 +481,9 @@ function doLogin(obj){
 		return false;
 	}
 
-		function updateDetailsNotification(obj,code){
+		function updateDetailsNotification(obj,mycode){
 			var map= {};
-			map["id"]=code;
+			map["id"]=mycode;
 			map["details"]=$(obj).parent().parent().find("#details").find("#details").val();
 			map["token"]=sessionStorage.getItem(code + "_token");
 			 $.ajax({
