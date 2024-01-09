@@ -343,6 +343,20 @@ function doLogin(obj){
 			
 }
 
+function sendManualSMS(){
+	if (confirm("Are you sure you want to send SMS?")) {
+		$.ajax({
+		  type: 'POST',
+		  url: contextPath.replace(code,"") +"scheduleEarlyEvent",
+		  success: function (response1) { 	
+					alert("SMS sending started..")					
+				}
+			});
+	  alert("Checking server for SMS status");
+	}	
+	return false;
+}
+
 
     function uploadFileToServer(){
         var formData = new FormData();
